@@ -442,7 +442,7 @@ class Room {
 
         const secureProtocol = window.location.protocol === 'https:'
         const protocol = secureProtocol ? 'wss' : 'ws'
-        const webSocketUrl = `${protocol}://${location.host}`
+        const webSocketUrl = `${protocol}://${location.host}/ws`
         console.log('connecting to websocket', webSocketUrl)
         this.webSocket = new WebSocket(webSocketUrl)
         this.webSocket.onerror = () => showPopup('websocket-connect-failed')

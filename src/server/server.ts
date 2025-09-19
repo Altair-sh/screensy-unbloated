@@ -17,6 +17,7 @@ function main(): void {
     const webServer = http.createServer((req, res) => {
         serveHandler(req, res, {
             public: 'public',
+            unlisted: ['ws'],
         })
     })
 
@@ -30,6 +31,7 @@ function main(): void {
 
     const websocketServer = new websocket.Server({
         server: webServer,
+        path: '/ws',
     })
 
     const broadcastServer = new Server()
