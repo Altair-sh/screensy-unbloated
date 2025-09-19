@@ -1,0 +1,23 @@
+{
+    "name": "screensy-unbloated",
+    "license": "GPL-3.0-or-later",
+    "homepage": "https://github.com/screensy/screensy",
+    "devDependencies": {
+        "@types/minimist": "^1.2.5",
+        "@types/node": "^22.18.6",
+        "@types/serve-handler": "^6.1.4",
+        "@types/ws": "^8.18.1",
+        "@typescript/native-preview": "^7.0.0-dev.20250918.1"
+    },
+    "dependencies": {
+        "minimist": "^1.2.8",
+        "serve-handler": "^6.1.6",
+        "ws": "^8.18.3"
+    },
+    "scripts": {
+        "build": "npx tsgo -b src/client src/server",
+        "postbuild": "cp -r public config.json build && cp -r src build/public",
+        "start": "cd build && node ./server.js",
+        "clean": "rm -rf build"
+    }
+}
